@@ -1,0 +1,506 @@
+{
+	"info": {
+		"_postman_id": "3860278b-1579-4d22-a358-4f78ea17ebe7",
+		"name": "JavaScript in Postman ",
+		"description": "add Javascript codes ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Basic condition handling ",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "227ff679-1087-486c-8458-c292d4d1042f",
+						"exec": [
+							"console.log(\"***************** Start Creating Request ******************************\")",
+							"",
+							"var data1=1001",
+							"",
+							"if(data1%2==0){",
+							"    console.log(\"This is Even number\")",
+							"}",
+							"else{",
+							"     console.log(\"This is Odd number\")",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "6fba2319-27b6-42fc-9e36-e0fb789e34ec",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/posts/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"posts",
+						"1"
+					]
+				},
+				"description": "Basic condition handling Using Postman "
+			},
+			"response": []
+		},
+		{
+			"name": "Looping ",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "595395bf-dfae-469f-a2c5-0d0dd97dbbd1",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "7c6e3e35-9649-4c6d-ab85-422fc6836fbd",
+						"exec": [
+							"for(i=1;i<=10;i++)",
+							"{",
+							"    console.log(i)",
+							"}",
+							"",
+							"console.log(\"************This is While loop**************\")",
+							"",
+							"i=2",
+							"while(i<=20)",
+							"{",
+							"     console.log(i)",
+							"     i++",
+							"}",
+							"",
+							"// Write a program to display table ",
+							"console.log(\"************Write a program to display table **************\")",
+							"",
+							"input=11",
+							"for(i=1;i<11;i++)",
+							"{",
+							"    console.log(input*i)",
+							"}",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/posts/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"posts",
+						"1"
+					]
+				},
+				"description": "Looping in Postman "
+			},
+			"response": []
+		},
+		{
+			"name": "Data from request(request object)",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "d8311ff4-567c-4502-a9ba-85ae0c35cc56",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "6615f0a9-a15f-4609-9770-469c07ebd990",
+						"exec": [
+							"//how we can fetch request content ",
+							"console.log(request.data)",
+							"console.log(request.url)",
+							"console.log(request.method)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 123,\n    \"title\": \"My Title\",\n    \"author\": \"My Author\"\n  }"
+				},
+				"url": {
+					"raw": "http://localhost:3000/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"posts"
+					]
+				},
+				"description": "How can we fetch request content "
+			},
+			"response": []
+		},
+		{
+			"name": "responseBody",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "24efd877-6801-4a35-8e37-3b28d1662ac0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "98894ee5-d5a5-466c-9725-b687c32cb870",
+						"exec": [
+							"//response body ",
+							"console.log(responseBody)",
+							"",
+							"//to fatch each part individually ",
+							"var json1=JSON.parse(responseBody)",
+							"console.log(json1.title)",
+							"console.log(json1.id)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 128,\n    \"title\": \"My Title\",\n    \"author\": \"My Author\"\n  }"
+				},
+				"url": {
+					"raw": "http://localhost:3000/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"posts"
+					]
+				},
+				"description": "responseBody Object "
+			},
+			"response": []
+		},
+		{
+			"name": "responseTime,responseCode",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "7ba00489-7b0c-40a9-8441-a3ccd1cfe304",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "057e91ad-72f1-46a5-9c6c-4e2bf2a30cdc",
+						"exec": [
+							"console.log(responseTime)",
+							"console.log(responseCode.code)",
+							"console.log(responseCode.name)",
+							"console.log(responseCode.datail)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 132,\n    \"title\": \"My Title\",\n    \"author\": \"My Author\"\n  }"
+				},
+				"url": {
+					"raw": "http://localhost:3000/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"posts"
+					]
+				},
+				"description": "responseTime will show in how many seconds executed \nresponseCode will 3 steps which are : code,time,detail"
+			},
+			"response": []
+		},
+		{
+			"name": "work on environment variable by coding ",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "05283566-6415-4c28-b739-7437500e041e",
+						"exec": [
+							"//create global variable",
+							"//postman.setEnvironmentVariable(\"MyId\",\"Test Value\")",
+							"",
+							"//get current url",
+							"//console.log(postman.getEnvironmentVariable(\"url\"))",
+							"",
+							"//to delete environment variable ",
+							"postman.clearEnvironmentVariable(\"username\")",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b71ae0dd-a2d6-43b5-a3e6-c782e3a19905",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 132,\n    \"title\": \"My Title\",\n    \"author\": \"My Author\"\n  }"
+				},
+				"url": {
+					"raw": "{{url}}/{{recsource}}/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{recsource}}",
+						""
+					]
+				},
+				"description": "create global var, get current url, delete exicting var, delete all environment we have 4 methods "
+			},
+			"response": []
+		},
+		{
+			"name": "Global Variable",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "54f77bea-64ad-495f-97ba-f3057a8f9cee",
+						"exec": [
+							"//create globalVariable ",
+							"//postman.setGlobalVariable(\"MyVar\",\"GlobalString\")",
+							"",
+							"//getValue of variable ",
+							"//console.log(postman.getGlobalVariable(\"resource\"))",
+							"",
+							"//remove var name ",
+							"//postman.clearGlobalVariable(\"resource\")",
+							"",
+							"",
+							"//remove all var",
+							"postman.clearGlobalVariables()",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 132,\n    \"title\": \"My Title\",\n    \"author\": \"My Author\"\n  }"
+				},
+				"url": {
+					"raw": "{{url}}/{{recsource}}/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{recsource}}",
+						""
+					]
+				},
+				"description": "add,remove,clear methods"
+			},
+			"response": []
+		},
+		{
+			"name": "http://thetestingworldapi.com/api/studentsDetails",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"first_name\": \"Fatih\",\n  \"middle_name\": \"Good Person\",\n  \"last_name\": \"Aytekin\",\n  \"date_of_birth\": \"12/12/2020\"\n}"
+				},
+				"url": {
+					"raw": "http://thetestingworldapi.com/api/studentsDetails",
+					"protocol": "http",
+					"host": [
+						"thetestingworldapi",
+						"com"
+					],
+					"path": [
+						"api",
+						"studentsDetails"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Assertion Expect",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c76f84fd-4acf-46dc-add8-d50ddcd6ada5",
+						"exec": [
+							"json_response=JSON.parse(responseBody)",
+							"//var x=json_response.data.last_name;",
+							"//pm.expect(x).to.equal(\"Aytekin\")",
+							"",
+							"//how to use json path ",
+							"var x=json_response.data.Address[0].Permanent_Address.City",
+							"pm.expect(x).to.equal(\"Pitssburgh\")",
+							"",
+							"",
+							"//pm.test(\"lastName should be Aytekin\", function () {",
+							" //   pm.expect(pm.response.text()).to.include(\"Aytekin\");",
+							"//});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://thetestingworldapi.com/api/FinalStudentDetails/2242",
+					"protocol": "http",
+					"host": [
+						"thetestingworldapi",
+						"com"
+					],
+					"path": [
+						"api",
+						"FinalStudentDetails",
+						"2242"
+					]
+				},
+				"description": "how to assertions "
+			},
+			"response": []
+		}
+	]
+}
